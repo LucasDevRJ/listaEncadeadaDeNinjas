@@ -32,6 +32,11 @@ public class Menu {
                 case 5:
                     listaDeNinjas.ordenacaoDeNinjas(entrada);
                     break;
+                case 6:
+                    System.out.println("Obrigado e tchau!");
+                    break;
+                default:
+                    System.out.println("Opção inválida.");
             }
         } while(opcao != 6);
     }
