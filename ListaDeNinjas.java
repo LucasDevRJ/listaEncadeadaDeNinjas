@@ -1,4 +1,3 @@
-import java.io.OutputStream;
 import java.util.Collections;
 import java.util.Comparator;
 import java.util.LinkedList;
@@ -114,10 +113,16 @@ public class ListaDeNinjas {
     public void exibirNinja(String nomeDoNinja) {
         System.out.println("--------------------|BUSCA DE NINJA|--------------------");
         if (!listaDeNinjas.isEmpty()) {
+            boolean ninjaEncontrado = false;
             for (Ninja ninjaBuscado : listaDeNinjas) {
                 if (ninjaBuscado.getNome().contains(nomeDoNinja)) {
                     System.out.println(ninjaBuscado);
+                    ninjaEncontrado = true;
                 }
+            }
+
+            if (!ninjaEncontrado) {
+                System.out.println("Ninja inexistente na lista.");
             }
         } else {
             System.out.println("A lista está vazia.");
@@ -168,7 +173,7 @@ public class ListaDeNinjas {
                 case 2:
                     LinkedList<Ninja> ordenacaoPorNome = (LinkedList<Ninja>) listaDeNinjas.clone();
                     Collections.sort(ordenacaoPorNome, Comparator.comparing(ninja -> ninja.getNome()));
-                    System.out.println("--------------------|ORDENAÇÃO POR IDADE|--------------------");
+                    System.out.println("--------------------|ORDENAÇÃO POR NOME|--------------------");
                     if (ordenacaoDecrescenteEDeAZ) {
                         for (int i = 0; i < ordenacaoPorNome.size(); i++) {
                             System.out.println(ordenacaoPorNome.get(i));
@@ -188,7 +193,7 @@ public class ListaDeNinjas {
                 case 3:
                     LinkedList<Ninja> ordenacaoPorVila = (LinkedList<Ninja>) listaDeNinjas.clone();
                     Collections.sort(ordenacaoPorVila, Comparator.comparing(ninja -> ninja.getVila()));
-                    System.out.println("--------------------|ORDENAÇÃO POR IDADE|--------------------");
+                    System.out.println("--------------------|ORDENAÇÃO POR VILA|--------------------");
                     if (ordenacaoDecrescenteEDeAZ) {
                         for (int i = 0; i < ordenacaoPorVila.size(); i++) {
                             System.out.println(ordenacaoPorVila.get(i));
