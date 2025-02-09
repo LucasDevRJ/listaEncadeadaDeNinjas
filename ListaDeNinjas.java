@@ -86,41 +86,75 @@ public class ListaDeNinjas {
         System.out.print("Digite a ordenação desejada: ");
         int ordenacao = entrada.nextInt();
 
+        System.out.println("1 - Ordenação Decrescente ou de A-Z.");
+        System.out.println("2 - Ordenação Crescente ou de Z-A.");
+        System.out.print("Digite o critério de ordenação: ");
+        int criterioOrdenacao = entrada.nextInt();
+
+        boolean ordenacaoDecrescenteEDeAZ = true;
+        if (criterioOrdenacao == 2) {
+            ordenacaoDecrescenteEDeAZ = false;
+        }
+
         switch (ordenacao) {
             case 1 :
                 LinkedList<Ninja> ordenacaoPorIdade = (LinkedList<Ninja>) listaDeNinjas.clone();
 
                 ordenacaoPorIdade.sort(Comparator.comparingInt(ninja -> ninja.getIdade()));
                 System.out.println("--------------------|ORDENAÇÃO POR IDADE|--------------------");
-                for (int i = ordenacaoPorIdade.size()-1; i > 0; i--) {
-                    System.out.println(ordenacaoPorIdade.get(i));
-                    System.out.println("Posição: " + i);
-                    System.out.println();
+                if (ordenacaoDecrescenteEDeAZ) {
+                    for (int i = ordenacaoPorIdade.size()-1; i >= 0; i--) {
+                        System.out.println(ordenacaoPorIdade.get(i));
+                        System.out.println("Posição: " + i);
+                        System.out.println();
+                    }
+                } else {
+                    for (int i = 0; i < ordenacaoPorIdade.size(); i++) {
+                        System.out.println(ordenacaoPorIdade.get(i));
+                        System.out.println("Posição: " + i);
+                        System.out.println();
+                    }
                 }
                 System.out.println("-------------------------------------------------------------");
                 break;
             case 2:
                 LinkedList<Ninja> ordenacaoPorNome = (LinkedList<Ninja>) listaDeNinjas.clone();
-
                 Collections.sort(ordenacaoPorNome, Comparator.comparing(ninja -> ninja.getNome()));
                 System.out.println("--------------------|ORDENAÇÃO POR IDADE|--------------------");
-                for (int i = 0; i < ordenacaoPorNome.size(); i++) {
-                    System.out.println(ordenacaoPorNome.get(i));
-                    System.out.println("Posição: " + i);
-                    System.out.println();
+                if (ordenacaoDecrescenteEDeAZ) {
+                    for (int i = 0; i < ordenacaoPorNome.size(); i++) {
+                        System.out.println(ordenacaoPorNome.get(i));
+                        System.out.println("Posição: " + i);
+                        System.out.println();
+                    }
+                } else {
+                    for (int i = ordenacaoPorNome.size()-1; i >= 0; i--) {
+                        System.out.println(ordenacaoPorNome.get(i));
+                        System.out.println("Posição: " + i);
+                        System.out.println();
+                    }
                 }
+
                 System.out.println("-------------------------------------------------------------");
                 break;
             case 3:
                 LinkedList<Ninja> ordenacaoPorVila = (LinkedList<Ninja>) listaDeNinjas.clone();
-
-                Collections.sort(ordenacaoPorVila, Comparator.comparing(ninja -> ninja.getNome()));
+                Collections.sort(ordenacaoPorVila, Comparator.comparing(ninja -> ninja.getVila()));
                 System.out.println("--------------------|ORDENAÇÃO POR IDADE|--------------------");
-                for (int i = 0; i < ordenacaoPorVila.size(); i++) {
-                    System.out.println(ordenacaoPorVila.get(i));
-                    System.out.println("Posição: " + i);
-                    System.out.println();
+                if (ordenacaoDecrescenteEDeAZ) {
+                    for (int i = 0; i < ordenacaoPorVila.size(); i++) {
+                        System.out.println(ordenacaoPorVila.get(i));
+                        System.out.println("Posição: " + i);
+                        System.out.println();
+                    }
+                } else {
+                    for (int i = ordenacaoPorVila.size()-1; i >= 0; i--) {
+                        System.out.println(ordenacaoPorVila.get(i));
+                        System.out.println("Posição: " + i);
+                        System.out.println();
+                    }
                 }
+
                 System.out.println("-------------------------------------------------------------");
                 break;
             case 4:
@@ -131,6 +165,9 @@ public class ListaDeNinjas {
 
                 exibirNinja(nome);
                 break;
+
+            default:
+                System.out.println("Opção inválida.");
         }
     }
 }
