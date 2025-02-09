@@ -1,4 +1,6 @@
 import java.io.OutputStream;
+import java.util.Collections;
+import java.util.Comparator;
 import java.util.LinkedList;
 import java.util.Scanner;
 
@@ -26,8 +28,9 @@ public class ListaDeNinjas {
         System.out.println("---------------------------------------------------------");
     }
 
-    public void adicionaNinja(Ninja ninja, Scanner entrada) {
+    public void adicionaNinja(Scanner entrada) {
         System.out.println("--------------------|ADIÇÃO DE NINJA|--------------------");
+        Ninja ninja = new Ninja();
         entrada.nextLine();
 
         System.out.print("Digite o nome do ninja: ");
@@ -63,5 +66,71 @@ public class ListaDeNinjas {
         Ninja ninja = listaDeNinjas.get(posicao);
         System.out.println(ninja);
         System.out.println("----------------------------------------------------------");
+    }
+
+    public void exibirNinja(String nomeDoNinja) {
+        System.out.println("--------------------|BUSCA DE NINJA|--------------------");
+        for (Ninja ninjaBuscado : listaDeNinjas) {
+            if (ninjaBuscado.getNome().contains(nomeDoNinja)) {
+                System.out.println(ninjaBuscado);
+            }
+        }
+        System.out.println("----------------------------------------------------------");
+    }
+
+    public void ordenacaoDeNinjas(Scanner entrada) {
+        System.out.println("1 - Ordenação por idade.");
+        System.out.println("2 - Ordenação por nome.");
+        System.out.println("3 - Ordenação por vila.");
+        System.out.println("4 - Buscar ninja por nome.");
+        System.out.print("Digite a ordenação desejada: ");
+        int ordenacao = entrada.nextInt();
+
+        switch (ordenacao) {
+            case 1 :
+                LinkedList<Ninja> ordenacaoPorIdade = (LinkedList<Ninja>) listaDeNinjas.clone();
+
+                ordenacaoPorIdade.sort(Comparator.comparingInt(ninja -> ninja.getIdade()));
+                System.out.println("--------------------|ORDENAÇÃO POR IDADE|--------------------");
+                for (int i = ordenacaoPorIdade.size()-1; i > 0; i--) {
+                    System.out.println(ordenacaoPorIdade.get(i));
+                    System.out.println("Posição: " + i);
+                    System.out.println();
+                }
+                System.out.println("-------------------------------------------------------------");
+                break;
+            case 2:
+                LinkedList<Ninja> ordenacaoPorNome = (LinkedList<Ninja>) listaDeNinjas.clone();
+
+                Collections.sort(ordenacaoPorNome, Comparator.comparing(ninja -> ninja.getNome()));
+                System.out.println("--------------------|ORDENAÇÃO POR IDADE|--------------------");
+                for (int i = 0; i < ordenacaoPorNome.size(); i++) {
+                    System.out.println(ordenacaoPorNome.get(i));
+                    System.out.println("Posição: " + i);
+                    System.out.println();
+                }
+                System.out.println("-------------------------------------------------------------");
+                break;
+            case 3:
+                LinkedList<Ninja> ordenacaoPorVila = (LinkedList<Ninja>) listaDeNinjas.clone();
+
+                Collections.sort(ordenacaoPorVila, Comparator.comparing(ninja -> ninja.getNome()));
+                System.out.println("--------------------|ORDENAÇÃO POR IDADE|--------------------");
+                for (int i = 0; i < ordenacaoPorVila.size(); i++) {
+                    System.out.println(ordenacaoPorVila.get(i));
+                    System.out.println("Posição: " + i);
+                    System.out.println();
+                }
+                System.out.println("-------------------------------------------------------------");
+                break;
+            case 4:
+                entrada.nextLine();
+
+                System.out.print("Digite o nome do ninja: ");
+                String nome = entrada.nextLine();
+
+                exibirNinja(nome);
+                break;
+        }
     }
 }

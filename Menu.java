@@ -12,7 +12,8 @@ public class Menu {
             System.out.println("2 - Adicionar ninja a lista.");
             System.out.println("3 - Remover ninja da lista.");
             System.out.println("4 - Exibir um ninja.");
-            System.out.println("5 - Sair.");
+            System.out.println("5 - Ordenação de ninjas.");
+            System.out.println("6 - Sair.");
             System.out.print("Digite a sua opção desejada: ");
             opcao = entrada.nextInt();
             switch (opcao) {
@@ -20,7 +21,7 @@ public class Menu {
                     listaDeNinjas.exibirListaDeNinjas();
                     break;
                 case 2:
-                    listaDeNinjas.adicionaNinja(ninja, entrada);
+                    listaDeNinjas.adicionaNinja(entrada);
                     break;
                 case 3:
                     listaDeNinjas.removerNinja();
@@ -28,7 +29,10 @@ public class Menu {
                 case 4:
                     listaDeNinjas.exibirNinja(entrada);
                     break;
+                case 5:
+                    listaDeNinjas.ordenacaoDeNinjas(entrada);
+                    break;
             }
-        } while(opcao != 5);
+        } while(opcao != 6);
     }
 }

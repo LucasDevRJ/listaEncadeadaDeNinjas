@@ -5,6 +5,10 @@ public class Ninja {
     public Ninja() {
 
     }
+
+    public Ninja(String nome) {
+
+    }
     public Ninja(String nome, int idade, String vila) {
         this.nome = nome;
         this.idade = idade;
