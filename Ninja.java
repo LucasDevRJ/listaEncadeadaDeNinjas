@@ -32,4 +32,9 @@ public class Ninja {
     public void setVila(String vila) {
         this.vila = vila;
     }
+
+    @Override
+    public String toString() {
+        return "\nNome: " + getNome() + "\nIdade: " + idade + "\nVila: " + getVila() + "\n";
+    }
 }
