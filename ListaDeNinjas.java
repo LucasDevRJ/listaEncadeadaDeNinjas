@@ -139,14 +139,16 @@ public class ListaDeNinjas {
             System.out.print("Digite a ordenação desejada: ");
             int ordenacao = entrada.nextInt();
 
-            System.out.println("1 - Ordenação Decrescente ou de A-Z.");
-            System.out.println("2 - Ordenação Crescente ou de Z-A.");
-            System.out.print("Digite o critério de ordenação: ");
-            int criterioOrdenacao = entrada.nextInt();
-
             boolean ordenacaoDecrescenteEDeAZ = true;
-            if (criterioOrdenacao == 2) {
-                ordenacaoDecrescenteEDeAZ = false;
+            if (ordenacao < 4) {
+                System.out.println("1 - Ordenação Decrescente ou de A-Z.");
+                System.out.println("2 - Ordenação Crescente ou de Z-A.");
+                System.out.print("Digite o critério de ordenação: ");
+                int criterioOrdenacao = entrada.nextInt();
+
+                if (criterioOrdenacao == 2) {
+                    ordenacaoDecrescenteEDeAZ = false;
+                }
             }
 
             switch (ordenacao) {
