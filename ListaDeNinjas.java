@@ -17,6 +17,16 @@ public class ListaDeNinjas {
         return listaDeNinjas;
     }
 
+    public void exibirListaDeNinjas() {
+        new ListaDeNinjas();
+        System.out.println("--------------------|LISTA DE NINJAS|--------------------");
+        for (int i = 0; i < listaDeNinjas.size(); i++) {
+            System.out.println(listaDeNinjas.get(i));
+            System.out.println();
+        }
+        System.out.print("---------------------------------------------------------");
+    }
+
     public void adicionaNinja(Ninja ninja) {
         listaDeNinjas.add(ninja);
         System.out.println("O ninja " + ninja + " foi adicionado com sucesso.");

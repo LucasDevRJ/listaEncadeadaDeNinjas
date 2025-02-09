@@ -35,6 +35,6 @@ public class Ninja {
 
     @Override
     public String toString() {
-        return "\nNome: " + getNome() + "\nIdade: " + idade + "\nVila: " + getVila() + "\n";
+        return "Nome: " + getNome() + "\nIdade: " + getIdade() + "\nVila: " + getVila();
     }
 }
