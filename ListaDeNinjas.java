@@ -20,6 +20,7 @@ public class ListaDeNinjas {
         System.out.println("--------------------|LISTA DE NINJAS|--------------------");
         for (int i = 0; i < listaDeNinjas.size(); i++) {
             System.out.println(listaDeNinjas.get(i));
+            System.out.println("Posição: " + i);
             System.out.println();
         }
         System.out.println("---------------------------------------------------------");
@@ -51,6 +52,16 @@ public class ListaDeNinjas {
         String nome = listaDeNinjas.getFirst().getNome();
         listaDeNinjas.removeFirst();
         System.out.println("O ninja " + nome + " foi removido com sucesso.");
+        System.out.println("----------------------------------------------------------");
+    }
+
+    public void exibirNinja(Scanner entrada) {
+        System.out.println("--------------------|EXIBIÇÃO DE NINJA|--------------------");
+        System.out.print("Digite a posição do ninja que deseja remover: ");
+        int posicao = entrada.nextInt();
+
+        Ninja ninja = listaDeNinjas.get(posicao);
+        System.out.println(ninja);
         System.out.println("----------------------------------------------------------");
     }
 }
