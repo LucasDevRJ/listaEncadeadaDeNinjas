@@ -4,9 +4,18 @@ public class ListaDeNinjas {
     private LinkedList<Ninja> listaDeNinjas = new LinkedList<>();
 
     public ListaDeNinjas() {
-
+        listaDeNinjas.add(new Ninja("Naruto Uzumaki", 12, "Konoha"));
+        listaDeNinjas.add(new Ninja("Sakura Haruno", 13, "Konoha"));
+        listaDeNinjas.add(new Ninja("Sasuke Uchiha", 13, "Konoha"));
+        listaDeNinjas.add(new Ninja("kakashi Hatake", 22, "Konoha"));
+        listaDeNinjas.add(new Ninja("Shikamaru Nara", 12, "Konoha"));
+        listaDeNinjas.add(new Ninja("Kiba Inuzuka", 13, "Konoha"));
+        listaDeNinjas.add(new Ninja("Rock Lee", 14, "Konoha"));
     }
 
+    public LinkedList<Ninja> getListaDeNinjas() {
+        return listaDeNinjas;
+    }
 
     public void adicionaNinja(Ninja ninja) {
         listaDeNinjas.add(ninja);
