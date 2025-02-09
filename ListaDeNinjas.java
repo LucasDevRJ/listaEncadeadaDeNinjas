@@ -1,3 +1,4 @@
+import java.io.OutputStream;
 import java.util.LinkedList;
 import java.util.Scanner;
 
@@ -39,9 +40,17 @@ public class ListaDeNinjas {
         System.out.print("Digite a vila do ninja: ");
         ninja.setVila(entrada.nextLine());
 
-        listaDeNinjas.add(ninja);
+        listaDeNinjas.addFirst(ninja);
 
         System.out.println("O ninja " + ninja.getNome() + " foi adicionado com sucesso.");
         System.out.println("---------------------------------------------------------");
+    }
+
+    public void removerNinja() {
+        System.out.println("--------------------|REMOÇÃO DE NINJA|--------------------");
+        String nome = listaDeNinjas.getFirst().getNome();
+        listaDeNinjas.removeFirst();
+        System.out.println("O ninja " + nome + " foi removido com sucesso.");
+        System.out.println("----------------------------------------------------------");
     }
 }

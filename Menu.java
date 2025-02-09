@@ -22,6 +22,9 @@ public class Menu {
                 case 2:
                     listaDeNinjas.adicionaNinja(ninja, entrada);
                     break;
+                case 3:
+                    listaDeNinjas.removerNinja();
+                    break;
             }
         } while(opcao != 5);
     }
